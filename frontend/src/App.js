@@ -43,7 +43,7 @@ class App extends Component {
         return (
             <Container className="app">
                 <Row>
-                    <Col md={3}>
+                    <Col md={2}>
                         <Sidebar className="sidebar"/>
                     </Col>
                     <Col md={6}>
