@@ -13,6 +13,7 @@ class Sidebar extends React.Component {
 
     componentWillMount() {
         // get the information you need to load the channels
+        // TODO: setup an axios call to load the channel list for this group.
         this.setState({
             channelList: [{
                 id: 1,
