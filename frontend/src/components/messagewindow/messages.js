@@ -1,43 +1,58 @@
 import React from "react";
 
 class Messages extends React.Component {
-  constructor(props) {
-    super(props);
-    // define states variables
-    this.state = {
-      hello: ""
-    };
+    constructor(props) {
+        super(props);
+        // define states variables
 
-    // define the getters and setters here
+        let state;
+        state = {
+            message: '',
+            listOfMessages: []
+        };
 
-    // function methods
-    this.clicke = this.clicke.bind(this);
-    this.clicke2 = this.clicke2.bind(this);
-  }
+        this.state = state;
+        //Define the list of messages
+        this.state.listOfMessages = this.props.listOfMessages
 
-//   convert this methods to something more useful
-  clicke(event) {
-    alert("test");
-    // this.props.pr = "testss"
-    this.props.setterHa("testee");
-  }
-  clicke2() {
-    var h = this.props.getterHa();
-    alert(h);
-  }
+        // define the getters and setters here
+        // this is for the child elements
+        // function methods
+        this.sendMessage = this.sendMessage.bind(this);
+    }
 
-  render() {
-    return (
-      <>
-        <h3>hello this is a main menu</h3>
-        <button onClick={this.clicke}>test</button>
-        <button onClick={this.clicke2}>Test 2</button>
-        <form action="" className="messageForm">
-          <input type="text" id="message" autoComplete="off" />
-        </form>
-      </>
-    );
-  }
+    sendMessage(event) {
+        event.preventDefault();
+        // Submit the message back up to the parent
+        this.props.setMessage(document.getElementById('message').value);
+        document.getElementById('message').value =''; //clear up the message
+
+        //    add emit to the socket.io here TODO: setup socket.io connection here to this channel
+    }
+
+    render() {
+        return (
+            <>
+                <h3>Hello this is the main menu</h3>
+                <div>
+                    <ul>
+                        {
+                            this.state.listOfMessages.map((data)=>{
+                                return (
+                                    <li key={data.objectId}>{data}</li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+
+                <form action="" className="messageForm" onSubmit={this.sendMessage}>
+                    <input type="text" id="message" autoComplete="off" />
+                    <input type="submit" onClick={this.sendMessage}/>
+                </form>
+            </>
+        );
+    }
 }
 
 export default Messages;

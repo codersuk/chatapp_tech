@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 
 // Import components
@@ -15,39 +15,45 @@ import "./App.css";
 
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.state ={
-      'ha':'test'
+    constructor(props) {
+        super(props);
+        let state;
+        state = {
+            message: '',
+            listOfMessages: []
+        };
+        this.state = state;
+
+
+        //  setup the getters and setters
+        this.setterMessage = this.setterMessage.bind(this);
+
     }
 
-    // Register Settings / Getters
-    this.setterHa = this.setterHa.bind(this);
-    this.getterHa = this.getterHa.bind(this);
-    
-  }
-  // setter for HA
-  setterHa(data){
-    this.setState({ha:data});
-  }
+    //Setter for messages
+    setterMessage(data) {
+        let runningMessage = this.state.listOfMessages;
+        if (data !== "") {
+            runningMessage.push(data);
+        }
+        this.setState({message: data});
+    }
 
-  // getter for HA
-  getterHa(){
-    return this.state.ha;
-  }
-  render() {
-    return (
-      <Container className="app">
-        <Row>
-          <Col md={3}>
-            <Sidebar className="sidebar" pr={this.state.ha}  />
-          </Col>
-          <Col md={6}>
-          <Messages className="messageContainer" setterHa={this.setterHa} getterHa={this.getterHa} /></Col>
-        </Row>
-      </Container>
-    );
-  }
+    render() {
+        return (
+            <Container className="app">
+                <Row>
+                    <Col md={3}>
+                        <Sidebar className="sidebar"/>
+                    </Col>
+                    <Col md={6}>
+                        <Messages className="messageContainer" listOfMessages={this.state.listOfMessages}
+                                  setMessage={this.setterMessage}/>
+                    </Col>
+                </Row>
+            </Container>
+        );
+    }
 }
 
 export default App;
