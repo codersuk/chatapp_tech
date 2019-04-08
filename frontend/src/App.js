@@ -26,12 +26,12 @@ class App extends Component {
 
 
         //  setup the getters and setters
-        this.setterMessage = this.setterMessage.bind(this);
+        this.setMessages = this.setMessages.bind(this);
 
     }
 
     //Setter for messages
-    setterMessage(data) {
+    setMessages(data) {
         let runningMessage = this.state.listOfMessages;
         if (data !== "") {
             runningMessage.push(data);
@@ -48,7 +48,7 @@ class App extends Component {
                     </Col>
                     <Col md={6}>
                         <Messages className="messageContainer" listOfMessages={this.state.listOfMessages}
-                                  setMessage={this.setterMessage}/>
+                                  setMessage={this.setMessages}/>
                     </Col>
                 </Row>
             </Container>
