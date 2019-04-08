@@ -1,0 +1,24 @@
+/* main app wrapper */
+.app {
+
+  width:75%;
+  margin:0 auto;
+  
+  border:1px solid #000;
+  min-height: 400px;
+
+}
+.messageContainer{
+  height:100px;
+  background: #222;
+}
+.messageForm{
+  position: relative;
+  bottom: 0;
+  width:100%;
+  padding:4px;
+
+}
+.messageForm input {
+  border: 1px solid #222;
+}
