@@ -3,10 +3,12 @@ import React from "react";
 class Messages extends React.Component {
   constructor(props) {
     super(props);
-    // define states
+    // define states variables
     this.state = {
       hello: ""
     };
+
+    // define the getters and setters here
 
     // function methods
     this.clicke = this.clicke.bind(this);
