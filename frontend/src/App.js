@@ -27,6 +27,10 @@ class App extends Component {
 
         //  setup the getters and setters for this parent
         this.setMessages = this.setMessages.bind(this);
+        this.setChannel = this.setChannel.bind(this);
+
+    }
+    setChannel(data){
 
     }
 
@@ -46,7 +50,7 @@ class App extends Component {
             <Container className="app">
                 <Row>
                     <Col md={2}>
-                        <Sidebar className="sidebar"/>
+                        <Sidebar className="sidebar" setChannel={this.setChannel}/>
                     </Col>
                     <Col md={6}>
                         <Messages className="messageContainer" listOfMessages={this.state.listOfMessages}
