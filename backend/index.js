@@ -8,7 +8,7 @@ var io = require('socket.io')(http);
 
 // Start the code
 app.get("/", (req, res) => {
-  res.send("<h1>hello world</h1>");
+  res.send("<h1>Hello World</h1>");
 });
 
 // Setup the io ON listener
