@@ -25,13 +25,19 @@ class App extends Component {
         this.state = state;
 
 
-        //  setup the getters and setters
+        //  setup the getters and setters for this parent
         this.setMessages = this.setMessages.bind(this);
+        this.setChannel = this.setChannel.bind(this);
+
+    }
+    setChannel(data){
 
     }
 
     //Setter for messages
     setMessages(data) {
+        // TODO: Save the message to a database and broadcast it to the other people in this group
+        // TODO: parse current group and channels to the server to allow us to connect to the correct namespace
         let runningMessage = this.state.listOfMessages;
         if (data !== "") {
             runningMessage.push(data);
@@ -44,7 +50,7 @@ class App extends Component {
             <Container className="app">
                 <Row>
                     <Col md={2}>
-                        <Sidebar className="sidebar"/>
+                        <Sidebar className="sidebar" setChannel={this.setChannel}/>
                     </Col>
                     <Col md={6}>
                         <Messages className="messageContainer" listOfMessages={this.state.listOfMessages}

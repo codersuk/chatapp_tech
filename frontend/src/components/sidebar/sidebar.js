@@ -8,6 +8,7 @@ class Sidebar extends React.Component {
             channelList: []
         };
         this.state = state;
+        this.channelChosen = this.channelChosen.bind(this);
 
     }
 
@@ -30,6 +31,10 @@ class Sidebar extends React.Component {
 
     }
 
+    channelChosen(id){
+        this.props.setChannel(id);
+    }
+
 
     render() {
         return (
@@ -40,7 +45,7 @@ class Sidebar extends React.Component {
                         this.state.channelList.map((data) => {
 
                             return (
-                                <li key={data.objectId}>{data.name}</li>
+                                <li key={data.objectId} onClick={this.channelChosen(data.id)}>{data.name}</li>
                             )
                         })
                     }
