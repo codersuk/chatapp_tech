@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 
 });
 
-// Setup the io ON listener
+// Setup the io ON listenerá
 
 // on(event) == the 'connection' is an event
 io.on('connection',(socket)=>
