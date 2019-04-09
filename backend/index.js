@@ -11,11 +11,10 @@ const port = 3001
 app.get("/", (req, res) => {
 
   res.send("<h1>Hello World</h1>");
-
-  
   // res.sendFile(__dirname + '/public/index.hmtl');
 
 });
+
 
 // Setup the io ON listenerá
 
