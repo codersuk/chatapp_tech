@@ -25,13 +25,15 @@ class App extends Component {
         this.state = state;
 
 
-        //  setup the getters and setters
+        //  setup the getters and setters for this parent
         this.setMessages = this.setMessages.bind(this);
 
     }
 
     //Setter for messages
     setMessages(data) {
+        // TODO: Save the message to a database and broadcast it to the other people in this group
+        // TODO: parse current group and channels to the server to allow us to connect to the correct namespace
         let runningMessage = this.state.listOfMessages;
         if (data !== "") {
             runningMessage.push(data);
