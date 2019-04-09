@@ -1,17 +1,22 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend nodejs for socket.io project",
   "main": "index.js",
   "dependencies": {
     "express": "^4.16.4",
+    "nodemon": "^1.18.11",
     "socket.io": "^2.2.0"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
   },
-  "author": "bramburn",
-  "license": "ISC"
+  "scripts": {
+    "start": "nodemon ./index.js --exec babel-node -e js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bhavesh Ramburn",
+  "license": "MIT"
 }
