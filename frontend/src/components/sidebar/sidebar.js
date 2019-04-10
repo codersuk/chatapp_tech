@@ -31,7 +31,7 @@ class Sidebar extends React.Component {
 
     }
 
-    channelChosen(id){
+    channelChosen(id) {
         this.props.setChannel(id);
     }
 
